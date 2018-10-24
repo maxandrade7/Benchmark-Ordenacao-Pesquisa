@@ -1,0 +1,81 @@
+import time
+import random
+
+# Adicionar as funções de Ordenamento e Pesquisa.
+
+
+def pesquisaBinaria(lista, item, A, B):
+    if (B<A):
+      return -1
+    meio = (A+B)//2
+  
+    if (lista[meio]==item):
+      return meio
+
+    elif (item>lista[meio]):
+      return pesquisaBinaria(lista, item, meio+1,B)
+
+    else:
+      return pesquisaBinaria(lista, item, A, meio-1)
+  
+    print (pesquisaBinaria(lista, item, 0, len(lista-1)))
+
+    lista = [0,2,4,6,8]
+    item = 6
+
+# Programa principal
+def main():
+    lista = list(range(1, 15000+1))
+    A = lista[0]
+    B = lista[-1]
+
+    print("Tamanho da lista: %d"%(len(lista)))
+
+    #Dados da ordenação
+    
+    inicio_ordenacao = time.time()
+    print("Tempo inicial da ordenação: %f"%(inicio_ordenacao))
+
+    semOrdenacao(lista)
+
+    fim_ordenacao = time.time()
+    print("Tempo final da ordenação: %f"%(fim_ordenacao))
+
+    tempoTotal_ordenacao = fim_ordenacao - inicio_ordenacao
+    print("O tempo total da ordenação foi %f"%(tempoTotal_ordenacao))
+
+   
+   
+   
+    #Dados da pesquisa
+
+    inicio_pesq = time.time() 
+    print("tempo inicial da pesquisa: %f"%(inicio_pesq))
+
+    posicao = pesquisaBinaria(lista, 7500, A, B)
+    print("Posição do item é %d"%(posicao))
+
+    fim_pesq = time.time() 
+    print("Tempo final da pesquisa: %f"%(fim_pesq)) 
+
+    tempototal_pesq = fim_pesq - inicio_pesq
+    print ("O tempo total da pesquisa foi %f "%(tempototal_pesq))
+
+    inicio_pesq_ordenacao = time.time() 
+    print ("Tempo inicial da pesquisa ordenacao: %f"% (inicio_pesq_ordenacao))
+
+    semOrdenacao(lista)
+    posicao = pesquisaBinaria(lista, 7500, A, B)
+
+    fim_pesq_ordenacao = time.time()
+    print ("Tempo final da pesquisa ordenacao: %f "%(fim_pesq_ordenacao))
+
+    tempototal_pesq_ordenacao = tempototal_pesq + tempoTotal_ordenacao
+    print ("O tempo total da pesquisa ordenacao: %f"%(tempototal_pesq_ordenacao))
+
+
+
+
+
+if (__name__ == "__main__"):
+    main()
