@@ -91,27 +91,35 @@ def main():
     lista = list(range(1, 15000+1))
     random.shuffle(lista)
 
+#Contar o tempo da ordenação
+
     inicio = time.time()
-    print("Tempo inicial: %f"%(inicio))
+    print("Tempo inicial da ordenação: %f"%(inicio))
 
     mergeSort(lista)
 
     fim = time.time()
-    print("Tempo final: %f"%(fim))
+    print("Tempo final da ordenação: %f"%(fim))
+    
+    tempoTotal1 = fim - inicio
+    print("Tempo Total da ordenação %f"%(tempoTotal1))
 
-    print("Tempo Total da ordenação %f"%(fim-inicio))
+#Contar o tempo da pesquisa
 
     inicio = time.time()
-    print("Tempo inicial: %f"%(inicio))
+    print("Tempo inicial da pesquisa: %f"%(inicio))
 
     posicao = pesquisaLinear(lista, 7500)
     print("Posição do item  %d"%(posicao))
 
     fim = time.time()
-    print("Tempo final: %f"%(fim))
+    print("Tempo final da pesquisa: %f"%(fim))
 
-    tempoTotal = fim - inicio
-    print("O tempo total foi %f"%(tempoTotal))
+    tempoTotal2 = fim - inicio
+    print("O tempo total da pesquisa: %f"%(tempoTotal2))
+
+    TempoTotal = tempoTotal1 + tempoTotal2
+    print ("O tempo Total: %f" % (TempoTotal))
 
 if (__name__ == "__main__"):
     main()

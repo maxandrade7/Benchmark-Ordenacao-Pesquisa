@@ -90,31 +90,38 @@ def pesquisaLinear(lista, elemento_desejado):
 def main():
     lista = list(range(1, 15000+1))
     random.shuffle(lista)
-
+    
+#Contar o tempo da ordenação
+    
     inicio = time.time()
     print("Tempo inicial: %f"%(inicio))
 
     bubble_sort(lista)
 
     fim = time.time()
-    print("Tempo final: %f"%(fim))
+    print("Tempo final da ordenação: %f"%(fim))
 
-
-    print("Tempo total da Ordenação %f"%(fim-inicio))
+    tempoTotal1 = fim - inicio
+    print("Tempo total da Ordenação %f"%(tempoTotal1))
 
 #Contar o tempo da pesquisa
 
     inicio = time.time()
-    print("Tempo inicial: %f"%(inicio))
+    print("Tempo inicial da pesquisa: %f"%(inicio))
 
     posicao = bb(lista, 7500)
     print("Posição do item  %d"%(posicao))
 
     fim = time.time()
-    print("Tempo final: %f"%(fim))
+    print("Tempo final da pesquisa: %f"%(fim))
 
-    tempoTotal = fim - inicio
-    print("O tempo total foi %f"%(tempoTotal))
+    tempoTotal2 = fim - inicio
+    print("O tempo total da pesquisa: %f"%(tempoTotal2))
+
+    TempoTotal = tempoTotal1 + tempoTotal2
+    print ("O tempo Total: %f" % (TempoTotal))
+
+    
 
 if (__name__ == "__main__"):
     main()
